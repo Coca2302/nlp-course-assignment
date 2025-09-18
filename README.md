@@ -50,48 +50,62 @@
 ## 2. Kết quả chạy code
 
 ###  Lab 1
-
+```
 **Input**:  Al-Zaman : American forces killed Shaikh Abdullah al-Ani, the preacher at the mosque in the town of
+```
+
 
 #### RegexTokenizer
-- **Thời gian chạy**: ~8.67 ms  
+- **Thời gian chạy**: ~8.67 ms
+  ```
 - **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
 'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
 'mosque', 'in', 'the', 'town', 'of']
+```
 
 #### SimpleTokenizer
-- **Thời gian chạy**: ~0.01 ms  
+- **Thời gian chạy**: ~0.01 ms
+```
 - **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
 'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
 'mosque', 'in', 'the', 'town', 'of']
-
+```
 
 ---
 
 ### Lab 2
-**Input corpus**:  
+**Input corpus**:
+```
    [
         "I love NLP.",
         "I love programming.",
         "NLP is a subfield of AI."
     ]
+```
 **RegexTokenizer**
 
 Vocabulary:
+```
 {'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+```
 Vectors:
+```
 [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
 [1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
 [1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]
+```
 
 **SimpleTokenizer**
 Vocabulary:
+```
 {'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+```
 Vectors:
+```
 [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
 [1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
 [1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]
-
+```
 ## 3. Giải thích kết quả
 ### Lab 1
 
