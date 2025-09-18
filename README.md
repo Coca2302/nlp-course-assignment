@@ -50,28 +50,30 @@
 ## 2. Kết quả chạy code
 
 ###  Lab 1
+**Input**: 
 ```
-**Input**:  Al-Zaman : American forces killed Shaikh Abdullah al-Ani, the preacher at the mosque in the town of
+ Al-Zaman : American forces killed Shaikh Abdullah al-Ani, the preacher at the mosque in the town of
 ```
 
 
 #### RegexTokenizer
 - **Thời gian chạy**: ~8.67 ms
+- **Tokens**:  
 ```
-- **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
+['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
 'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
 'mosque', 'in', 'the', 'town', 'of']
 ```
 
 #### SimpleTokenizer
 - **Thời gian chạy**: ~0.01 ms
+- **Tokens**:  
 ```
-- **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
+['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
 'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
 'mosque', 'in', 'the', 'town', 'of']
 ```
 
----
 
 ### Lab 2
 **Input corpus**:
