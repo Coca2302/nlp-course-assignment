@@ -1,79 +1,117 @@
-NLP Course Assignment - Lab 1 & Lab 2
-1. Mô tả công việc
-🔹 Lab 1
+# NLP Course Assignment - Lab 1 & Lab 2
 
-Cài đặt SimpleTokenizer:
+## 1. Mô tả công việc
 
-Tokenizer đơn giản, tách câu dựa trên khoảng trắng.
+###  Lab 1
+- Cài đặt **`SimpleTokenizer`**:
+  - Tokenizer đơn giản, tách câu dựa trên khoảng trắng.
+  - Ưu điểm: dễ triển khai, rất nhanh.
+  - Nhược điểm: không xử lý tốt dấu câu, dễ làm mất ngữ nghĩa (ví dụ: *covid-19* có thể bị tách sai).
 
-Ưu điểm: dễ triển khai, tốc độ rất nhanh.
+- Cài đặt **`RegexTokenizer`**:
+  - Sử dụng Regular Expression để tách token, xử lý tốt hơn văn bản có dấu câu.
+  - Ưu điểm: linh hoạt, chính xác hơn trong nhiều trường hợp.
+  - Nhược điểm: tốc độ chậm hơn một chút so với tokenizer đơn giản.
 
-Nhược điểm: không xử lý được dấu câu và ký tự đặc biệt, phân biệt chữ hoa/thường, dễ làm vocabulary bị “bẩn”.
-Ví dụ: covid-19 sẽ bị tách thành ['covid-19'] hoặc đôi khi giữ cả dấu chấm phẩy như document..
+- Cài đặt interface **`Tokenize`** trong `interfaces.py`:
+  - Định nghĩa chuẩn chung cho tất cả tokenizer.
+  - Giúp dễ dàng thay thế hoặc hoán đổi tokenizer trong các module khác.
 
-Cài đặt RegexTokenizer:
+- Cài đặt **`dataset loaders`**:
+  - Load dataset **UD_English-EWT** dưới dạng chuỗi văn bản.
+  - Sử dụng **100 ký tự đầu tiên** của dataset để thử nghiệm hai phương pháp Tokenize.
 
-Sử dụng Regular Expression để tách token (ví dụ: \w+).
-
-Ưu điểm: linh hoạt, loại bỏ dấu câu, chuẩn hóa token tốt hơn.
-
-Nhược điểm: tốc độ chậm hơn một chút do phải xử lý bằng regex.
-
-Cài đặt interface Tokenize trong interfaces.py:
-
-Định nghĩa chuẩn chung cho tất cả tokenizer.
-
-Giúp dễ dàng thay thế/hoán đổi tokenizer trong các module khác.
-
-Cài đặt dataset loaders:
-
-Load dữ liệu từ UD_English-EWT dưới dạng chuỗi văn bản.
-
-Thử nghiệm hai tokenizer trên các câu trong dataset để quan sát sự khác biệt.
-
-🔹 Lab 2
-
-Xây dựng interface Vectorizer (abstract class).
-
-Cài đặt CountVectorizer:
-
-fit(corpus): tạo vocabulary từ corpus.
-
-transform(documents): chuyển văn bản thành vector đếm từ.
-
-fit_transform(corpus): kết hợp cả hai bước trên.
-
-Tích hợp cả SimpleTokenizer và RegexTokenizer vào CountVectorizer để so sánh kết quả trên cùng corpus.
-
-Chạy thử trên corpus mẫu và dataset UD_English-EWT.
-
-2. Kết quả chạy code
-🔹 Lab 1 (Tokenizers)
-
-Input
-
-Al-Zaman : American forces killed Shaikh Abdullah al-Ani, the preacher at the mosque in the town of
-
-RegexTokenizer
-
-Tokens:
-
-['al', 'zaman', 'american', 'forces', 'killed', 'shaikh', 'abdullah', 'al', 'ani', 'the', 'preacher', 'at', 'the', 'mosque', 'in', 'the', 'town', 'of']
+###  Lab 2
 
 
-Thời gian chạy: ~8.67 ms
+## 2. Kết quả chạy code
 
-SimpleTokenizer
+###  Lab 1
 
-Tokens:
+**Input**:  Al-Zaman : American forces killed Shaikh Abdullah al-Ani, the preacher at the mosque in the town of
 
-['Al-Zaman', ':', 'American', 'forces', 'killed', 'Shaikh', 'Abdullah', 'al-Ani,', 'the', 'preacher', 'at', 'the', 'mosque', 'in', 'the', 'town', 'of']
+#### RegexTokenizer
+- **Thời gian chạy**: ~8.67 ms  
+- **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
+'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
+'mosque', 'in', 'the', 'town', 'of']
+
+#### SimpleTokenizer
+- **Thời gian chạy**: ~0.01 ms  
+- **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
+'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
+'mosque', 'in', 'the', 'town', 'of']
 
 
-Thời gian chạy: ~0.01 ms
+---
 
-👉 Nhận xét:
+### Lab 2
+**Input corpus**:  
+[
+    "This is a sample document.",
+    "This document is another example document.",
+    "And this is the third one.",
+]
+**RegexTokenizer**
 
-SimpleTokenizer cực nhanh nhưng giữ nguyên dấu câu (:, ,) và phân biệt chữ hoa/thường (Al-Zaman ≠ al-zaman).
+Vocabulary:
+{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 
+ 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+Vectors:
+[1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
+[1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
+[1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]
 
-RegexTokenizer xử lý văn bản sạch hơn, phù hợp hơn cho các tác vụ NLP, nhưng tốc độ chậm hơn.
+**SimpleTokenizer**
+Vocabulary:
+{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 
+ 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+Vectors:
+[1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
+[1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
+[1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1]
+
+## 3. Giải thích kết quả
+### Lab 1
+
+1. **Số lượng token**:  
+   - Cả hai tokenizer cho kết quả giống nhau trong ví dụ này vì chuỗi test đơn giản, chưa có trường hợp phức tạp như dấu chấm câu liên tiếp, .  
+
+2. **Tốc độ xử lý**:  
+   - `SimpleTokenizer` nhanh hơn rõ rệt (~0.01 ms so với ~8.67 ms).  
+   - Nguyên nhân: SimpleTokenizer chỉ dùng hàm `split()` trên khoảng trắng, trong khi RegexTokenizer phải biên dịch và áp dụng pattern regex phức tạp.  
+
+3. **Chất lượng phân tách**:  
+   - Trong các văn bản phức tạp, `RegexTokenizer` có ưu thế vượt trội vì xử lý được dấu câu, ký hiệu đặc biệt, hoặc từ viết liền với dấu.  
+   - `SimpleTokenizer` dễ bị lỗi tách sai, ví dụ:  
+     ```
+     Input: covid-19 is dangerous.
+     SimpleTokenizer → ['covid-19', 'is', 'dangerous.']
+     RegexTokenizer   → ['covid', '-', '19', 'is', 'dangerous']
+     ```
+
+4. **Kết luận**:  
+   - Khi cần tốc độ và dữ liệu đơn giản → dùng **SimpleTokenizer**.  
+   - Khi cần độ chính xác, đặc biệt trong NLP thực tế → dùng **RegexTokenizer**.
+### Lab 2
+
+1. **Vocabulary**  
+   - Cả hai tokenizer tạo ra vocabulary giống hệt nhau trong ví dụ này.  
+   - Lý do: corpus nhỏ, không có trường hợp đặc biệt.
+    
+
+2. **Document-term matrix**  
+   - Kết quả vector hóa từ `SimpleTokenizer` và `RegexTokenizer` hoàn toàn giống nhau.  
+   - Số lần xuất hiện của mỗi từ trong từng document được biểu diễn đúng trong các vector.  
+
+3. **Ý nghĩa**  
+   - `CountVectorizer` biến văn bản thành biểu diễn số, giúp mô hình ML có thể xử lý.  
+   - Với corpus lớn hơn, sử dụng CountVectorizer sẽ tạo thành các ma trận thưa.
+
+4. **Kết luận**  
+   - Trong ví dụ nhỏ, kết quả tương tự nhau.  
+   - Trong thực tế, chọn tokenizer phù hợp ảnh hưởng trực tiếp đến chất lượng vocabulary và vector hóa.  
+
+
+
+
