@@ -22,7 +22,30 @@
   - Sử dụng **100 ký tự đầu tiên** của dataset để thử nghiệm hai phương pháp Tokenize.
 
 ###  Lab 2
+- **Mục tiêu**  
+  - Biểu diễn văn bản dưới dạng số bằng mô hình **Bag-of-Words (BoW)**.  
+  - Chuẩn bị dữ liệu văn bản để sử dụng trong các mô hình Machine Learning.  
+  - Tái sử dụng Tokenizer đã cài đặt từ Lab 1.  
 
+- **Task 1: Xây dựng Vectorizer Interface**  
+  - Tạo lớp trừu tượng `Vectorizer` trong `src/core/interfaces.py`.  
+  - Gồm 3 phương thức bắt buộc:  
+    1. `fit(corpus)` – học vocabulary từ dữ liệu.  
+    2. `transform(documents)` – biến đổi document thành vector số.  
+    3. `fit_transform(corpus)` – kết hợp 2 bước trên.  
+
+- **Task 2: Cài đặt CountVectorizer**  
+  - Tạo file `src/representations/count_vectorizer.py`.  
+  - Cài đặt lớp `CountVectorizer` kế thừa `Vectorizer`.  
+  - Quy trình:  
+    - Trong `fit`: tokenize toàn bộ corpus, thu thập token duy nhất, tạo `vocabulary_` ánh xạ token → index.  
+    - Trong `transform`: với mỗi document, khởi tạo vector 0, sau đó tăng số đếm cho token xuất hiện.  
+    - Trong `fit_transform`: gọi tuần tự `fit` và `transform`.  
+
+- **Task 3: Evaluation / Testing**  
+  - Tạo file `test/lab2_test.py`.  
+  - Dùng `RegexTokenizer` từ Lab 1.  
+  - Khởi tạo `CountVectorizer` và chạy trên corpus mẫu:  
 
 ## 2. Kết quả chạy code
 
