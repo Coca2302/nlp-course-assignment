@@ -47,16 +47,15 @@
 
 ### Lab 2
 **Input corpus**:  
-[
-    "This is a sample document.",
-    "This document is another example document.",
-    "And this is the third one.",
-]
+   [
+        "I love NLP.",
+        "I love programming.",
+        "NLP is a subfield of AI."
+    ]
 **RegexTokenizer**
 
 Vocabulary:
-{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 
- 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
 Vectors:
 [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
 [1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
@@ -64,8 +63,7 @@ Vectors:
 
 **SimpleTokenizer**
 Vocabulary:
-{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 
- 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
+{'.': 0, 'a': 1, 'and': 2, 'another': 3, 'document': 4, 'example': 5, 'is': 6, 'one': 7, 'sample': 8, 'the': 9, 'third': 10, 'this': 11}
 Vectors:
 [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1]
 [1, 0, 0, 1, 2, 1, 1, 0, 0, 0, 0, 1]
