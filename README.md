@@ -57,7 +57,7 @@
 
 #### RegexTokenizer
 - **Thời gian chạy**: ~8.67 ms
-  ```
+```
 - **Tokens**:  ['al', '-', 'zaman', ':', 'american', 'forces', 'killed', 'shaikh',
 'abdullah', 'al', '-', 'ani', ',', 'the', 'preacher', 'at', 'the',
 'mosque', 'in', 'the', 'town', 'of']
